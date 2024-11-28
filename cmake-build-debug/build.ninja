@@ -97,6 +97,12 @@ build CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question7.c.o: C_COMPILER__TP1_ENSEA
   OBJECT_DIR = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir
   OBJECT_FILE_DIR = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir
 
+build CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question8.c.o: C_COMPILER__TP1_ENSEA_IN_THE_SHELL_unscanned_Debug /home/sammygros/CLionProjects/TP1_ENSEA_IN_THE_SHELL/question8.c || cmake_object_order_depends_target_TP1_ENSEA_IN_THE_SHELL
+  DEP_FILE = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question8.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir
+  OBJECT_FILE_DIR = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TP1_ENSEA_IN_THE_SHELL
@@ -105,7 +111,7 @@ build CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question7.c.o: C_COMPILER__TP1_ENSEA
 #############################################
 # Link the executable TP1_ENSEA_IN_THE_SHELL
 
-build TP1_ENSEA_IN_THE_SHELL: C_EXECUTABLE_LINKER__TP1_ENSEA_IN_THE_SHELL_Debug CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/main.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question1.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question2.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question3.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question4.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question5.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question6.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question7.c.o
+build TP1_ENSEA_IN_THE_SHELL: C_EXECUTABLE_LINKER__TP1_ENSEA_IN_THE_SHELL_Debug CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/main.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question1.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question2.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question3.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question4.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question5.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question6.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question7.c.o CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir/question8.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/TP1_ENSEA_IN_THE_SHELL.dir
   POST_BUILD = :

@@ -12,7 +12,7 @@
 
 #define MAXSIZE 1024
 
-void execute_command_complex(char *command, int *status);
-void separate_command(char *command, char **argv);
+void execute_command_complex(char **argv, int *status);
+void separate_arguments(char *command, char **argv);
 
 #endif //QUESTION6_H

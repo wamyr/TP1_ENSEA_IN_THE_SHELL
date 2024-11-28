@@ -17,4 +17,6 @@ add_executable(TP1_ENSEA_IN_THE_SHELL main.c
         question6.c
         question6.h
         question7.c
-        question7.h)
+        question7.h
+        question8.c
+        question8.h)

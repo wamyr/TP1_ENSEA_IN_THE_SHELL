@@ -4,10 +4,8 @@
 
 #include "question6.h"
 
-void execute_command_complex(char *command, int *status) {
+void execute_command_complex(char **argv, int *status) {
     if (fork() == 0) {
-        char* argv[MAXSIZE];
-        separate_command(command, argv);
         execvp(argv[0],argv);
         exit(1);
     }
@@ -16,7 +14,7 @@ void execute_command_complex(char *command, int *status) {
     }
 }
 
-void separate_command(char *command, char **argv) {
+void separate_arguments(char *command, char **argv) {
     int i = 0;
     char *token = strtok(command, " ");  // Séparation par espaces
     // Tokenize et remplir argv
