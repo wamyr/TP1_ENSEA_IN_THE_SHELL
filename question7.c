@@ -27,9 +27,67 @@ int identify_pipe_and_brackets(char **argv, int* position_pipe_or_bracket) {
 }
 
 void execute_command_lesser_than(char **argv, int *status, int position_pipe_or_bracket) {
-    write(STDOUT_FILENO, "lesser_than \n", sizeof("lesser_than \n"));
+    pid_t pid;
+
+    pid = fork(); // Création du processus enfant
+    if (pid == -1) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {
+        // Enfant
+        // Ouvre le fichier mentionné après `<`
+        int fd = open(argv[position_pipe_or_bracket + 1], O_RDONLY);
+        if (fd == -1) {
+            perror("open");
+            exit(EXIT_FAILURE);
+        }
+
+        // Redirige stdin vers le fichier
+        dup2(fd, STDIN_FILENO);
+        close(fd); // Ferme le descripteur inutilisé
+
+        // Prépare la commande avant `<`
+        argv[position_pipe_or_bracket] = NULL; // Remplace `<` par NULL
+        execvp(argv[0], argv); // Exécute la commande
+        perror("execvp");
+        exit(EXIT_FAILURE);
+    }
+
+    // Parent
+    waitpid(pid, status, 0); // Attend l'enfant
 }
 
 void execute_command_greater_than(char **argv, int *status, int position_pipe_or_bracket) {
-    write(STDOUT_FILENO, "greater_than \n", sizeof("greater_than \n"));
+    pid_t pid;
+    pid = fork(); // Création du processus enfant
+
+    if (pid == -1) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {
+        // Enfant
+        // Ouvre ou crée le fichier mentionné après `>`
+        int fd = open(argv[position_pipe_or_bracket + 1], O_CREAT | O_WRONLY | O_TRUNC, PERMISSION_TO_WRITE_OWNER);
+        if (fd == -1) {
+            perror("open");
+            exit(EXIT_FAILURE);
+        }
+
+        // Redirige stdout vers le fichier
+        dup2(fd, STDOUT_FILENO);
+        close(fd); // Ferme le descripteur inutilisé
+
+        // Prépare la commande avant `>`
+        argv[position_pipe_or_bracket] = NULL; // Remplace `>` par NULL
+        execvp(argv[0], argv); // Exécute la commande
+        perror("execvp");
+        exit(EXIT_FAILURE);
+    }
+
+    // Parent
+    waitpid(pid, status, 0); // Attend l'enfant
 }
