@@ -15,16 +15,15 @@ int main(void) {
     char* argv[MAXSIZE];
     int position_pipe_or_bracket = 0;
 
-    welcome();
+    welcome_message();
     print_prompt();
-    print_percentage();
+    print_percentage(); //the welcome message and first prompt (without exit or sign) is printed
 
     while(True) {
-        prompt_reading(command);
-        start_timer();
-        //execute_command(command, &status);
-        separate_arguments(command, argv);
-        switch (identify_pipe_and_brackets(argv, &position_pipe_or_bracket)) {
+        prompt_reading(command); //shell instruction stored in the char table : command
+        start_timer(); //timer launched for the command execution time
+        separate_arguments(command, argv); //separate each argument of command and store it in argv
+        switch (identify_pipe_and_brackets(argv, &position_pipe_or_bracket)) { //determine if there is < > or | in the received command and execute the associated operation.
             case HAVE_PIPE:
                 execute_command_pipe(argv, &status, position_pipe_or_bracket);
                 break;
@@ -37,14 +36,16 @@ int main(void) {
             case NO_PIPE_NO_LESSER_THAN_NO_GREATER_THAN:
                 execute_command_complex(argv, &status);
                 break;
+            default:
+                break;
         }
         end_timer();
-        if (command_exit(command) == True) {
+        if (command_exit(command) == True) { //if the instruction is exit, we stop
             exit(0);
         }
-        print_prompt();
-        print_status(status);
-        print_time(get_time());
+        print_prompt(); //the command has been executed, no exit, we print the next prompt
+        print_status(status); //Displaying the return code (or signal) of the previous command in the prompt
+        print_time(get_time());// get_time return the command execution time, we just print it
         print_percentage();
     }
     return 0;

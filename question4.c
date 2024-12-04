@@ -6,9 +6,9 @@
 
 
 void write_message(char *message, int val) {
-    char message_to_sent[MAXSIZE] = {'\0'};
-    snprintf(message_to_sent, sizeof(message_to_sent), message, val);
-    write(STDOUT_FILENO, message_to_sent, sizeof(message_to_sent));
+    char message_to_write[MAXSIZE] = {'\0'};
+    snprintf(message_to_write, sizeof(message_to_write), message, val); //replace %d in our message with the value val
+    write(STDOUT_FILENO, message_to_write, sizeof(message_to_write));
 }
 
 void print_status(int status) {

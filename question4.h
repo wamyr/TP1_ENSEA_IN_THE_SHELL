@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
-#include <stdio.h>
 
 #define MAXSIZE 1024
 #define MSG_EXIT "[exit:%d"

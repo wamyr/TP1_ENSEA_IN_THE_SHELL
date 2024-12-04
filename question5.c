@@ -21,5 +21,5 @@ void end_timer() {
 }
 
 int get_time() {
-    return ((int) ((double)(end_time.tv_sec - start_time.tv_sec)*1e3 + (double)(end_time.tv_nsec - start_time.tv_nsec) / 1e6)) ; //time is in ms
+    return ((int) ((double)(end_time.tv_sec - start_time.tv_sec)*1e3 + (double)(end_time.tv_nsec - start_time.tv_nsec) / 1e6)) ; //time is in ms, the hardest part here is managing the type: struct timespec
 }

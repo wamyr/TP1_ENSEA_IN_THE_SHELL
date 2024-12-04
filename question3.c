@@ -6,7 +6,7 @@
 
 int command_exit(char *command) {
     if (strcmp(command, "exit") == False) {
-        // si je veux mettre bye bye c'est ici
+        // no bye bye message...
         return True ;
     }
     return False;

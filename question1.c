@@ -19,5 +19,5 @@ void print_percentage() {
 
 void welcome() {
     welcome_message();
-    //print_prompt();
+    //print_prompt(); this function is useless now that print_prompt() is not used.
 }
