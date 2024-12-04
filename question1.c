@@ -13,8 +13,8 @@ void print_prompt() {
     write(STDOUT_FILENO, msg_prompt, sizeof(msg_prompt));
 }
 
-void print_pourcentage() {
-    write(STDOUT_FILENO, msg_pourcentage, sizeof(msg_pourcentage));
+void print_percentage() {
+    write(STDOUT_FILENO, msg_percentage, sizeof(msg_percentage));
 }
 
 void welcome() {

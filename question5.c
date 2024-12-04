@@ -3,14 +3,13 @@
 //
 
 #include "question5.h"
+#include "question4.h"
 
 struct timespec start_time;
 struct timespec end_time;
 
 void print_time(int time) {
-    char message_to_sent[MAXSIZE] = {'\0'};
-    snprintf(message_to_sent, sizeof(message_to_sent),msg_time, time);
-    write(STDOUT_FILENO, message_to_sent, sizeof(message_to_sent));
+    write_message(msg_time, time);
 }
 
 void start_timer() {
@@ -22,5 +21,5 @@ void end_timer() {
 }
 
 int get_time() {
-    return ((int) ((double)(end_time.tv_sec - start_time.tv_sec)*1e3 + (double)(end_time.tv_nsec - start_time.tv_nsec) / 1e6)) ;
+    return ((int) ((double)(end_time.tv_sec - start_time.tv_sec)*1e3 + (double)(end_time.tv_nsec - start_time.tv_nsec) / 1e6)) ; //time is in ms
 }

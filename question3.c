@@ -5,9 +5,9 @@
 #include "question3.h"
 
 int command_exit(char *command) {
-    if (strcmp(command, "exit") == 0) {
+    if (strcmp(command, "exit") == False) {
         // si je veux mettre bye bye c'est ici
-        return 1 ;
+        return True ;
     }
-    return 0;
+    return False;
 }

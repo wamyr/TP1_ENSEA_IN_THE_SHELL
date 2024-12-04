@@ -7,7 +7,6 @@
 #include "question7.h"
 #include "question8.h"
 
-#define True 1
 
 int main(void) {
 
@@ -18,7 +17,7 @@ int main(void) {
 
     welcome();
     print_prompt();
-    print_pourcentage();
+    print_percentage();
 
     while(True) {
         prompt_reading(command);
@@ -38,8 +37,6 @@ int main(void) {
             case NO_PIPE_NO_LESSER_THAN_NO_GREATER_THAN:
                 execute_command_complex(argv, &status);
                 break;
-            default:
-                break;
         }
         end_timer();
         if (command_exit(command) == True) {
@@ -48,7 +45,7 @@ int main(void) {
         print_prompt();
         print_status(status);
         print_time(get_time());
-        print_pourcentage();
+        print_percentage();
     }
     return 0;
 }
